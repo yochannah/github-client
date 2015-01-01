@@ -1,0 +1,42 @@
+html {
+    background:#fcfcfc;
+}
+
+body {
+    font-family:helvetica, arial, sans-serif;
+    color:#333;
+    margin:1em;
+}
+
+h2 {
+ font-size:1.1em;
+ font-weight:normal;
+}
+
+form {
+    @inputColor : darkseagreen;
+    .inputStandardStyles {
+        border-radius:4px;
+        padding:1em;
+        border:solid 1px @inputColor;
+        }    
+    input[type='text'] {
+        .inputStandardStyles;
+    }
+    button {
+        .inputStandardStyles;    
+        color:#fff;
+        background-color:@inputColor;
+        box-shadow: 1px 1px 1px seagreen;
+    }
+}
+
+.issues {
+    margin:1em;
+    thead {
+        font-weight:bold;
+    }
+    td {
+        padding:0.1em 0.5em;        
+    }
+}
