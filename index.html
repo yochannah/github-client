@@ -38,9 +38,11 @@
         
     </table>
     
-    <div class="empty" ng-show="issues.length <= 0 && !errorResponse">No issues to show here yet. Try filling in the form above to search for a repo.</div>
-    
-    <div class="error" ng-show="errorResponse">{{errorResponse}}</div>
+    <div class="requestStatus">
+        <div class="loader" ng-hide="!loading || issues.$resolved"></div>
+        <div class="empty" ng-show="issues.length <= 0 && !errorResponse">No issues to show here yet. Try filling in the form above to search for a repo.</div>
+        <div class="error" ng-show="errorResponse">{{errorResponse}}</div>
+    </div>
     
   </main>
 </body>
