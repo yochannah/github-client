@@ -82,7 +82,18 @@ form {
 }
 
 .empty {
+    .alertbox(#666);
+}
+
+.error {
+    .alertbox(#93032e);
+}
+
+.alertbox(@color) {
+    margin:1em 0em;
+    border-radius:2px;
     text-align:center;
-    margin:1em;
-    color:#666;
+    border:solid 1px @color;
+    padding:1em;
+    background-color:fadeout(@color,90%);
 }
