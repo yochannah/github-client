@@ -5,7 +5,10 @@ gitAppControllers.controller('IssuesListController', ['$scope','Issue', function
 	$scope.issues = {}
 	
 	$scope.search = function() {
-	    $scope.issues = Issue.query($scope.filters)
+	    $scope.issues = Issue.query($scope.filters, function (success) {
+	    }, function (error) {
+	        console.error("TODO: Useful feedback...")
+	    });
 	};
 
 }]);
