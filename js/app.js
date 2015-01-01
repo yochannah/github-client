@@ -1,0 +1,1 @@
+var gitApp = angular.module('gitApp',['gitAppControllers' ,'gitAppServices']);
