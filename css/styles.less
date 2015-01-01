@@ -40,10 +40,12 @@ form {
         border-radius:2px;
         padding:1em;
         border:solid 1px @inputColor;
-        width:30%;
+        width:32%;
+        box-sizing:border-box;
         }    
     input[type='text'] {
         .inputStandardStyles;
+        width:33%;
     }   
     button {
         .inputStandardStyles;    
@@ -77,4 +79,10 @@ form {
         padding:0.1em 0.5em;
         height:2.2em; //this is actually just the min-height, as the table cell will stretch anyway
     }
+}
+
+.empty {
+    text-align:center;
+    margin:1em;
+    color:#666;
 }

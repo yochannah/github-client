@@ -37,6 +37,11 @@
         </tbody>
         
     </table>
+    
+    <div class="empty" ng-show="issues.length <= 0">No issues to show here yet. Try filling in the form above to search for a repo.</div>
+    
+    <div class="error" ng-show="ng-error"></div>
+    
   </main>
 </body>
 </html>
