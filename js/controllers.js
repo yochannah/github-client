@@ -2,10 +2,10 @@ var gitAppControllers = angular.module('gitAppControllers', []);
 
 gitAppControllers.controller('IssuesListController', ['$scope','Issue', function($scope, Issue) {
 
-	$scope.issues = Issue.query();
+	$scope.issues = {}
 	
 	$scope.search = function() {
-	    console.log('booya');
+	    $scope.issues = Issue.query($scope.filters)
 	};
 
 }]);

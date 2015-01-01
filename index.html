@@ -12,10 +12,10 @@
 <body>
     <h1>Github Issues List</h1>
     <h2>Type the name of a user and repo here, or press enter to search for the default</h2>
-  <div>
-    <form name="issuesForm" id="issuesForm" ng-controller="IssuesListController">
-        <input type="text" value="gruntjs" name="user" />
-        <input type="text" value="grunt" name="repo" />
+  <div ng-controller="IssuesListController">
+    <form name="issuesForm" id="issuesForm">
+        <input type="text" ng-model="filters.user" value="gruntjs" name="user" />
+        <input type="text" value="grunt" ng-model="filters.repo" name="repo" />
         <button type="submit" ng-click="search()">Enter a user and repo to search for issues</button>
     </form>
     <table class="issues">
