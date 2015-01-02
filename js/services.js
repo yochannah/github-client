@@ -8,3 +8,12 @@ gitAppServices.factory('Issue', ['$resource', function($resource) {
 		    }
 	});
 }]);
+
+gitAppServices.factory('User', ['$resource', function($resource) {
+	return $resource('https://api.github.com/users/:user/repos/', {}, {
+		query: {
+		    method: 'GET',
+		    isArray:true
+		    }
+	});
+}]);

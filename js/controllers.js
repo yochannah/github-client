@@ -1,12 +1,15 @@
 var gitAppControllers = angular.module('gitAppControllers', []);
 
-gitAppControllers.controller('IssuesListController', ['$scope','Issue', function($scope, Issue) {
+gitAppControllers.controller('IssuesListController', ['$scope','Issue', 'User', function($scope, Issue, User) {
 
 	$scope.issues = [];
+	$scope.repos = [];
 	
 	$scope.search = function() {
 	    $scope.loading = true;
+	    
 	    $scope.errorResponse = false;
+	    
 	    $scope.issues = Issue.query($scope.filters, 
 	        function (success) {
 	            $scope.loading = false;
@@ -21,7 +24,13 @@ gitAppControllers.controller('IssuesListController', ['$scope','Issue', function
                     $scope.errorResponse = "Oops. Looks like there has been an error. We've reported it to the computer elves and we're doing our best to fix it right now."
                 }
 	        
-    	    });
-	};
-
+    	    });    
+    	};
+    	
+	    $scope.searchUsers = function() {
+	        var repos = User.query($scope.filters, function () {
+	            $scope.repos = repos;
+	        });	            	    
+    	};
+	
 }]);

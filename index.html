@@ -18,8 +18,12 @@
         <div>
             <h2>Type the name of a user and repo here, then press enter or hit 'Search!'</h2>
             <form name="issuesForm" id="issuesForm" ng-submit="search()">
-                <input type="text" ng-model="filters.user" placeholder="type a user, e.g. 'gruntjs'" name="user" required />
-                <input type="text" placeholder="type a repo, e.g. 'grunt'" ng-model="filters.repo" name="repo" required />
+                <input type="text" ng-model="filters.user" placeholder="type a user, e.g. 'gruntjs'" name="user" ng-blur="searchUsers()" required />
+                
+                <select name="repo" placeholder="select a repo">
+                    <option ng-repeat="repo in repos" value="{{repo.name}}">{{repo.name}}</option>
+                </select>
+                
                 <button type="submit">Search!</button>
             </form>
         </div>
