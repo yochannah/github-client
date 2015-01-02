@@ -3,6 +3,8 @@
 @red: #93032e;
 @blue : rgb(34,174,209);
 
+@smallScreenSize : 640px;
+
 body {
     font-family:helvetica, arial, sans-serif;
     color:#333;
@@ -16,7 +18,13 @@ body {
     box-sizing:border-box;
     background:#fcfcfc;
     padding:0.5em 1em;
+    @media (max-width: @smallScreenSize) {
+        width:96%;
+        left:2%;
+    }
 }
+
+
 
 header {
     .mainBodyStyle;
@@ -44,10 +52,18 @@ form {
         border:solid 1px @inputColor;
         width:32%;
         box-sizing:border-box;
-        }    
+        @media (max-width: @smallScreenSize) {
+            width:100%;
+            margin:0.3em 0em;
+        }        
+    }    
     input[type='text'] {
         .inputStandardStyles;
         width:33%;
+        @media (max-width: @smallScreenSize) {
+            width:100%;
+        }
+        
     }   
     button {
         .inputStandardStyles;    
@@ -99,6 +115,11 @@ form {
     padding:1em;
     background-color:fadeout(@color,90%);
 }
+
+
+
+
+
 
 @loaderColor : @green; 
 .loader, //this sexy loader was borrowed from http://projects.lukehaas.me/css-loaders/ and tweaked by me. 
