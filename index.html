@@ -20,7 +20,8 @@
             <form name="issuesForm" id="issuesForm" ng-submit="search()">
                 <input type="text" ng-model="filters.user" placeholder="type a user, e.g. 'gruntjs'" name="user" ng-blur="searchUsers()" required />
                 
-                <select name="repo" placeholder="select a repo">
+                <select name="repo" ng-model="filters.repo">
+                    <option disabled selected value="">Select a Repository</option>
                     <option ng-repeat="repo in repos" value="{{repo.name}}">{{repo.name}}</option>
                 </select>
                 
