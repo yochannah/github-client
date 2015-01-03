@@ -1,16 +1,17 @@
 var gitAppControllers = angular.module('gitAppControllers', []);
 
-gitAppControllers.controller('IssuesListController', ['$scope','Issue', 'User', function($scope, Issue, User) {
+gitAppControllers.controller('IssuesListController', ['$scope','Issue', 'Repo', function($scope, Issue, Repo) {
 
-	$scope.issues = [];
-	$scope.repos = [];
+	$scope.issues = null;
+	$scope.repos = null;
 	
-	$scope.search = function() {
+	$scope.getIssues = function() {
         $scope.searchFor(Issue,'issues');
     };
     	
-    $scope.searchUsers = function() {
-        $scope.searchFor(User,'repos');
+    $scope.getRepos = function() {
+    	$scope.repos = null;    
+        $scope.searchFor(Repo,'repos');
     };
 
     $scope.searchFor = function(thingToFind, storeAs) {
