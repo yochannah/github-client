@@ -50,7 +50,6 @@ form {
         border-radius:2px;
         padding:1em;
         border:solid 1px @inputColor;
-        width:32%;
         box-sizing:border-box;
         
         @media (max-width: @smallScreenSize) {
@@ -61,13 +60,53 @@ form {
     }    
     input[type='text'], select {
         .inputStandardStyles;
-        width:33%;
+        width:49%;
         height:3em;
+      line-height:3em;
+        vertical-align:middle;        
         background-color:#fff;
         @media (max-width: @smallScreenSize) {
             width:100%;
         }
-    }   
+    }
+  
+    select {
+        display: inline-block;
+        -webkit-appearance:none;
+        -moz-appearance:none;
+        appearance:none;
+        cursor:pointer;
+    }
+
+    // This fantastic hack to make selects visually pleasing was tweaked from http://cssdeck.com/labs/styling-select-box-with-css3
+    // Targeting Webkit browsers only. FF will show the dropdown arrow with so much padding.
+    @media screen and (-webkit-min-device-pixel-ratio:0) {
+        select {padding-right:18px}
+    }
+
+    label {position:relative}
+    label:after {
+        content:'<>';
+        font:11px "Consolas", monospace;
+        color:@inputColor;
+        -webkit-transform:rotate(90deg);
+        -moz-transform:rotate(90deg);
+        -ms-transform:rotate(90deg);
+        transform:rotate(90deg);
+        right:8px; top:2px;
+        padding:0 0 2px;
+        border-bottom:1px solid fadeout(@inputColor, 50%);
+        position:absolute;
+        pointer-events:none;
+    }
+    label:before {
+        content:'';
+        right:6px; top:0px;
+        width:20px; height:20px;
+        position:absolute;
+        pointer-events:none;
+        display:block;
+    }
 }
 
 .issues {

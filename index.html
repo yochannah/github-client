@@ -19,12 +19,14 @@
             <h2>Type the name of a user and repo here, then press enter or hit 'Search!'</h2>
             <form name="issuesForm" id="issuesForm" ng-submit="search()">
                 <input type="text" ng-model="filters.user" placeholder="type a user, e.g. 'gruntjs'" name="user" ng-blur="searchUsers()" required />
-                
-                <select name="repo" ng-model="filters.repo" ng-change="search()">
-                    <option disabled selected value="">Select a Repository</option>
-                    <option ng-repeat="repo in repos" value="{{repo.name}}">{{repo.name}}</option>
-                </select>
+                <label>
+                    <select name="repo" ng-model="filters.repo" ng-change="search()">
+                        <option disabled selected value="">Select a Repository</option>
+                        <option ng-repeat="repo in repos" value="{{repo.name}}">{{repo.name}}</option>
+                    </select>
+                </label>
             </form>
+            {{filters}}
         </div>
         
     <div class="issues">
