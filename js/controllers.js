@@ -20,7 +20,6 @@ gitAppControllers.controller('IssuesListController', ['$scope','Issue', 'User', 
         $scope[storeAs] = thingToFind.query(
         $scope.filters, 
         function (success) {
-            console.log(success, storeAs);
             $scope.loading = false;
         }, 
         function (error) {

@@ -16,7 +16,7 @@
     <main ng-controller="IssuesListController">
     
         <div>
-            <h2>Type the name of a user and repo here, then press enter or hit 'Search!'</h2>
+            <h2>Type the name of a user, then select a repo name to view all open issues'</h2>
             <form name="issuesForm" id="issuesForm" ng-submit="search()">
                 <input type="text" ng-model="filters.user" placeholder="type a user, e.g. 'gruntjs'" name="user" ng-blur="searchUsers()" required />
                 <label>
@@ -26,7 +26,6 @@
                     </select>
                 </label>
             </form>
-            {{filters}}
         </div>
         
     <div class="issues">

@@ -48,10 +48,9 @@ form {
     @inputColor : @green;
     .inputStandardStyles {
         border-radius:2px;
-        padding:1em;
         border:solid 1px @inputColor;
         box-sizing:border-box;
-        
+        padding-left:1em;
         @media (max-width: @smallScreenSize) {
             width:100%;
             margin:0.3em 0em;
@@ -61,8 +60,8 @@ form {
     input[type='text'], select {
         .inputStandardStyles;
         width:49%;
-        height:3em;
-      line-height:3em;
+        min-height:3em;
+        line-height:3em;
         vertical-align:middle;        
         background-color:#fff;
         @media (max-width: @smallScreenSize) {
@@ -71,6 +70,10 @@ form {
     }
   
     select {
+        min-height:3.3em;
+        height:3.3em;
+        line-height:3.3em;
+        vertical-align:middle;
         display: inline-block;
         -webkit-appearance:none;
         -moz-appearance:none;
