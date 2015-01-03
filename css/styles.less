@@ -56,23 +56,18 @@ form {
         @media (max-width: @smallScreenSize) {
             width:100%;
             margin:0.3em 0em;
+            font-size:0.8em;
         }        
     }    
-    input[type='text'] {
+    input[type='text'], select {
         .inputStandardStyles;
         width:33%;
-
+        height:3em;
+        background-color:#fff;
         @media (max-width: @smallScreenSize) {
             width:100%;
         }
-        
     }   
-    button {
-        .inputStandardStyles;    
-        color:#fff;
-        background-color:@inputColor;
-        box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
-    }
 }
 
 .issues {
@@ -101,6 +96,10 @@ form {
         margin:0;
         padding:0.1em 0.5em;
         height:2.2em; //this is actually just the min-height, as the table cell will stretch anyway
+    }
+    
+    @media (max-width: @smallScreenSize) {
+      font-size:0.8em;
     }
 }
 
