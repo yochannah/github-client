@@ -2,11 +2,16 @@ var gitAppControllers = angular.module('gitAppControllers', []);
 
 gitAppControllers.controller('IssuesListController', ['$scope','Issue', 'Repo', function($scope, Issue, Repo) {
 
-    $scope.reset = function() {
+    $scope.resetRepos = function() {
     	$scope.issues = null;
 	    $scope.repos = null;
 	    $scope.loading = null;
 	    $scope.errorResponse = null;
+	    if ($scope.filters) {delete $scope.filters.repo;}
+    };
+
+    $scope.reset = function() {
+        $scope.resetRepos();
 	    $scope.filters = null;
     };
 
