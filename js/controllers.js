@@ -2,8 +2,16 @@ var gitAppControllers = angular.module('gitAppControllers', []);
 
 gitAppControllers.controller('IssuesListController', ['$scope','Issue', 'Repo', function($scope, Issue, Repo) {
 
-	$scope.issues = null;
-	$scope.repos = null;
+    $scope.reset = function() {
+    	$scope.issues = null;
+	    $scope.repos = null;
+	    $scope.loading = null;
+	    $scope.errorResponse = null;
+	    $scope.filters = null;
+    };
+
+
+    $scope.reset();
 	
 	$scope.getIssues = function() {
         $scope.searchFor(Issue,'issues');
@@ -28,6 +36,7 @@ gitAppControllers.controller('IssuesListController', ['$scope','Issue', 'Repo', 
             $scope.error(error);
         });
     };
+    
 
     $scope.error = function(error) {
     	    if(error.status == "404") {

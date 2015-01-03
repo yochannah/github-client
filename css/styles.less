@@ -24,15 +24,19 @@ body {
     }
 }
 
+@mainBodyRadius : 18px;
 
 
 header {
     .mainBodyStyle;
     margin-bottom:0;
+    border-radius: @mainBodyRadius @mainBodyRadius 0px 0px;
 }
 main {
     .mainBodyStyle;
     margin-top:0;
+    padding-bottom:1em;
+    border-radius: 0px 0px @mainBodyRadius @mainBodyRadius;
 }
 
 h1 {

@@ -18,7 +18,7 @@
         <div>
             <h2>Type the name of a user, then select a repo name to view all open issues'</h2>
             <form name="issuesForm" id="issuesForm" ng-submit="getRepos()">
-                <input type="text" ng-model="filters.user" placeholder="type a user, e.g. 'gruntjs'" name="user" ng-blur="getRepos()" required />
+                <input type="text" ng-model="filters.user" placeholder="type a user, e.g. 'gruntjs'" name="user" ng-blur="getRepos()" ng-focus="reset()" required />
                 <label>
                     <select name="repo" ng-model="filters.repo" ng-change="getIssues()">
                         <option disabled selected value="">Select a Repository</option>
@@ -28,7 +28,7 @@
             </form>
         </div>
         
-    <div class="issues">
+    <div class="issues" ng-show="issues.length > 0">
     <table>
         <thead>
             <tr><td>#</td><td>Title</td><td>Date</td></tr>
@@ -45,10 +45,14 @@
     </div>
         
     <div class="requestStatus">
+        <!-- Todo: refactor this alert block to a less messy state. Probably a directive that takes args for type, message, and condition to show? -->
         <div class="loader" ng-hide="!loading || issues.$resolved"></div>
         <div class="empty" ng-show="!issues.$resolved && issues.length <=0 && !errorResponse">No issues to show here yet. Try filling in the form above to search for a repo.</div>
         <div class="empty" ng-show="issues.length == 0 && issues.$resolved && !errorResponse">Looks like this repo doesn't have any open issues!</div>
+        
+        <div class="empty" ng-show="!issues.$resolved && repos.$resolved  && repos.length > 0 && !errorResponse">Awesome, {{filters.user}} has a github account! Now select a repo.</div>
         <div class="empty" ng-show="repos.length == 0 && repos.$resolved && !errorResponse">Looks like this user doesn't have any public repos!</div>
+        <div class="empty" ng-show=""></div>
         <div class="error" ng-show="errorResponse">{{errorResponse}}</div>
     </div>
     
